@@ -4,7 +4,7 @@ import com.seekJob.writing.domain.DevideResult;
 
 import java.util.List;
 /**
- * author: cheweiwen
+ * author: chenweiwen
  * date: 2020/02/19
  *
  */
@@ -15,7 +15,7 @@ public interface WritingService {
      * @param srcSentence
      * @return
      */
-    List<DevideResult> breakSentenceWithConfirmedDictonary(String srcSentence);
+    List<DevideResult> breakSentenceWithConfirmedDictionary(String srcSentence);
 
     /**
      * 输入句子根据用户给的词典进行分词,实现的是第2个需求
@@ -23,7 +23,7 @@ public interface WritingService {
      * @param dictionary
      * @return
      */
-    List<DevideResult> breakSentenceWithUserProvidedDictonary(String srcSentence,String ... dictionary);
+    List<DevideResult> breakSentenceWithUserProvidedDictionary(String srcSentence, String ... dictionary);
 
     /**
      * 输入句子根据用户给的词典和给的固定的词典的词总和进行分词,实现的是第3个需求
@@ -31,6 +31,6 @@ public interface WritingService {
      * @param dictionary
      * @return
      */
-    List<DevideResult> breakSentenceWithBothDictonaries(String srcSentence,String ... dictionary);
+    List<DevideResult> breakSentenceWithBothDictionaries(String srcSentence, String ... dictionary);
 
 }

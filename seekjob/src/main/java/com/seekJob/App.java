@@ -3,7 +3,7 @@ package com.seekJob;
 import java.util.Scanner;
 
 /**
- * author: cheweiwen
+ * author: chenweiwen
  * date: 2020/02/19
  *
  */

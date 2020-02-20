@@ -8,16 +8,16 @@ import com.seekJob.writing.service.WritingService;
 
 import java.util.*;
 /**
- * author: cheweiwen
+ * author: chenweiwen
  * date: 2020/02/19
  *
  */
 public class WritingServiceImpl implements WritingService {
     @Override
-    public List<DevideResult> breakSentenceWithConfirmedDictonary(String srcSentence) {
+    public List<DevideResult> breakSentenceWithConfirmedDictionary(String srcSentence) {
 
         String[] words={"i","like","sam","sung","samsung","mobile","ice","cream","man","go"};
-       return breakSentenceWithUserProvidedDictonary(srcSentence,words);
+       return breakSentenceWithUserProvidedDictionary(srcSentence,words);
     }
 
     private List<DevideResult> oneDevideResultToManyDevideResult(DevideResult devideResult,Dictionary dictonary)
@@ -32,24 +32,25 @@ public class WritingServiceImpl implements WritingService {
                 if(indexMap.get(fistChar)==null)
                 {
                     devideResult.setDivisible(false);
+                    devideResult.setRemainStr("");
                     nowResult.add(devideResult);
                     return nowResult;
                 }
         Map<Integer, Map<String, Word>> wordLengthMap = indexMap.
-                get(fistChar).
-                getWordLengthMap();
+        get(fistChar).
+        getWordLengthMap();
 
         for (Integer wordLength : wordLengthMap.keySet()) {
             if(startIndexNum+wordLength<=remainStrTemp.length())
             {
                 Map<String, Word> wordMap = wordLengthMap.get(wordLength);
                 String targetStr = remainStrTemp.substring(startIndexNum, startIndexNum+wordLength);
-                if(wordMap.get(targetStr)!=null)
-                {
-                    nowResult.add(new DevideResult(targetStr,validSentence+" "+targetStr
-                            ,remainStrTemp.substring(startIndexNum+wordLength,remainStrTemp.length())));
+                    if(wordMap.get(targetStr)!=null)
+                    {
+                        nowResult.add(new DevideResult(targetStr,validSentence+" "+targetStr
+                                ,remainStrTemp.substring(startIndexNum+wordLength,remainStrTemp.length())));
 
-                }
+                    }
             }
             else {
                 continue;
@@ -62,7 +63,7 @@ public class WritingServiceImpl implements WritingService {
 
 
     @Override
-    public List<DevideResult> breakSentenceWithUserProvidedDictonary(String srcSentence, String... words) {
+    public List<DevideResult> breakSentenceWithUserProvidedDictionary(String srcSentence, String... words) {
 
         //1输入词语,生成词典,生成索引,生成单词
         Dictionary dictionary = new Dictionary(words);
@@ -109,13 +110,14 @@ public class WritingServiceImpl implements WritingService {
 
             }
             newResults=resultsTemp;
+            System.out.println("前"+finalResults+":后"+newResults);
 
         }
         return finalResults;
     }
 
     @Override
-    public List<DevideResult> breakSentenceWithBothDictonaries(String srcSentence, String... words)
+    public List<DevideResult> breakSentenceWithBothDictionaries(String srcSentence, String... words)
     {
         String[] confirmedWords={"i","like","sam","sung","samsung","mobile","ice","cream","man","go","blue"};
         Set<String> wordFilterSet=new HashSet<>();//1两个数组进行去重
@@ -126,7 +128,7 @@ public class WritingServiceImpl implements WritingService {
         for (String confirmedWord : confirmedWords) {
             wordFilterSet.add(confirmedWord);
         }
-        return breakSentenceWithUserProvidedDictonary(srcSentence,wordFilterSet.toArray(words));
+        return breakSentenceWithUserProvidedDictionary(srcSentence,wordFilterSet.toArray(words));
     }
 
 

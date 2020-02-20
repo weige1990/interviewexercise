@@ -19,7 +19,7 @@ public class AppTest
     {
 
        List<DevideResult> resultList= new WritingServiceImpl
-                ().breakSentenceWithConfirmedDictonary("ilikesamsungmobile");
+                ().breakSentenceWithConfirmedDictionary("ilikesamsungmobilemango");
         for (DevideResult devideResult : resultList) {
 
         System.out.println(  devideResult.getValidSentence() );
@@ -35,7 +35,7 @@ public class AppTest
     {
 
         List<DevideResult> resultList= new WritingServiceImpl
-                ().breakSentenceWithConfirmedDictonary("ilikeicecreammango");
+                ().breakSentenceWithConfirmedDictionary("ilikeicecreammango1");
         for (DevideResult devideResult : resultList) {
 
             System.out.println(  devideResult.getValidSentence() );
@@ -51,7 +51,7 @@ public class AppTest
 
 
         List<DevideResult> resultList= new WritingServiceImpl
-                ().breakSentenceWithUserProvidedDictonary("ilikesamsungmobile","i","like","sam","sung"
+                ().breakSentenceWithUserProvidedDictionary("ilikesamsungmobile","i","like","sam","sung"
                 ,"mobile","ice","cream","man","go");
         for (DevideResult devideResult : resultList) {
 
@@ -69,7 +69,7 @@ public class AppTest
 
 
         List<DevideResult> resultList= new WritingServiceImpl
-                ().breakSentenceWithBothDictonaries("ilikesamsungmobileblueyellow","i","like","sam","sung"
+                ().breakSentenceWithBothDictionaries("ilikesamsungmobileblueyellow","i","like","sam","sung"
                 ,"mobile","ice","cream","man","go","yellow");
         for (DevideResult devideResult : resultList) {
 

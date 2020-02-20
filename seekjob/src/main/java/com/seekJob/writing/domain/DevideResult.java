@@ -1,7 +1,7 @@
 package com.seekJob.writing.domain;
 //每次分词的结果
 /**
- * author: cheweiwen
+ * author: chenweiwen
  * date: 2020/02/19
  *
  */

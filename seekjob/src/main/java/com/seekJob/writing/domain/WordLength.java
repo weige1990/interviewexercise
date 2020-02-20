@@ -6,7 +6,7 @@ import java.util.Map;
 //一个索引的一个长度下对应多个内容不同的词语
 
 /**
- * author: cheweiwen
+ * author: chenweiwen
  * date: 2020/02/19
  *
  */
